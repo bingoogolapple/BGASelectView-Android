@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -49,8 +50,12 @@ public class BGASelectView extends TextView implements AdapterView.OnItemClickLi
 
     private void initAttrs(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.BGASelectView);
-        mListView = (ListView) View.inflate(getContext(), typedArray.getResourceId(R.styleable.BGASelectView_sv_listViewLayoutId, R.layout.selectview_popwindow) , null);
+        mListView = (ListView) View.inflate(getContext(), typedArray.getResourceId(R.styleable.BGASelectView_sv_listViewLayoutId, R.layout.selectview_popwindow), null);
+        mListView.setCacheColorHint(context.getResources().getColor(android.R.color.transparent));
         mListView.setOnItemClickListener(this);
+        if (Build.VERSION.SDK_INT >= 9) {
+            mListView.setOverScrollMode(View.OVER_SCROLL_NEVER);
+        }
         typedArray.recycle();
     }
 
@@ -119,6 +124,7 @@ public class BGASelectView extends TextView implements AdapterView.OnItemClickLi
 
     /**
      * 关闭activity中打开的键盘
+     *
      * @param activity
      */
     public static void closeKeyboard(Activity activity) {
@@ -134,10 +140,11 @@ public class BGASelectView extends TextView implements AdapterView.OnItemClickLi
 
     /**
      * 关闭dialog中打开的键盘
+     *
      * @param dialog
      */
     public static void closeKeyboard(Dialog dialog) {
-        if (dialog ==  null) {
+        if (dialog == null) {
             return;
         }
         View view = dialog.getWindow().peekDecorView();
