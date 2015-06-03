@@ -14,7 +14,7 @@ import java.util.List;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import cn.bingoogolapple.selectview.demo.model.CascadeModel;
+import cn.bingoogolapple.selectview.CascadeModel;
 
 /**
  * 作者:王浩 邮件:bingoogolapple@gmail.com

@@ -10,8 +10,8 @@ import java.util.List;
 import cn.bingoogolapple.androidcommon.adapter.BGAAdapterViewAdapter;
 import cn.bingoogolapple.androidcommon.adapter.BGAViewHolderHelper;
 import cn.bingoogolapple.selectview.BGASelectView;
+import cn.bingoogolapple.selectview.CascadeModel;
 import cn.bingoogolapple.selectview.demo.R;
-import cn.bingoogolapple.selectview.demo.model.CascadeModel;
 import cn.bingoogolapple.selectview.demo.util.AddressXmlParserHandler;
 
 /**
