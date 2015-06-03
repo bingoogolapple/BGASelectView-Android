@@ -11,9 +11,7 @@ import cn.bingoogolapple.androidcommon.adapter.BGAAdapterViewAdapter;
 import cn.bingoogolapple.androidcommon.adapter.BGAViewHolderHelper;
 import cn.bingoogolapple.selectview.BGASelectView;
 import cn.bingoogolapple.selectview.demo.R;
-import cn.bingoogolapple.selectview.demo.model.CityModel;
-import cn.bingoogolapple.selectview.demo.model.DistrictModel;
-import cn.bingoogolapple.selectview.demo.model.ProvinceModel;
+import cn.bingoogolapple.selectview.demo.model.CascadeModel;
 import cn.bingoogolapple.selectview.demo.util.AddressXmlParserHandler;
 
 /**
@@ -27,15 +25,15 @@ public class MainActivity extends AppCompatActivity implements BGASelectView.Sel
     private BGASelectView mDistrictSv;
     private TextView mAddressTv;
 
-    private ProvinceAdapter mProvinceAdapter;
-    private CityAdapter mCityAdapter;
-    private DistrictAdapter mDistrictAdapter;
-    private List<ProvinceModel> mProvinces;
-    private List<CityModel> mCitys;
-    private List<DistrictModel> mDistricts;
-    private ProvinceModel mProvinceModel;
-    private CityModel mCityModel;
-    private DistrictModel mDistrictModel;
+    private AddressAdapter mProvinceAdapter;
+    private AddressAdapter mCityAdapter;
+    private AddressAdapter mDistrictAdapter;
+    private List<CascadeModel> mProvinces;
+    private List<CascadeModel> mCitys;
+    private List<CascadeModel> mDistricts;
+    private CascadeModel mProvinceModel;
+    private CascadeModel mCityModel;
+    private CascadeModel mDistrictModel;
 
     private String mProvinceId = "0001";
     private String mCityId = "0100";
@@ -55,17 +53,17 @@ public class MainActivity extends AppCompatActivity implements BGASelectView.Sel
     }
 
     private void initAddress() {
-        mProvinceAdapter = new ProvinceAdapter(this);
+        mProvinceAdapter = new AddressAdapter(this);
         mProvinceSv.setActivity(this);
         mProvinceSv.setAdapter(mProvinceAdapter);
         mProvinceSv.setDelegate(this);
 
-        mCityAdapter = new CityAdapter(this);
+        mCityAdapter = new AddressAdapter(this);
         mCitySv.setActivity(this);
         mCitySv.setAdapter(mCityAdapter);
         mCitySv.setDelegate(this);
 
-        mDistrictAdapter = new DistrictAdapter(this);
+        mDistrictAdapter = new AddressAdapter(this);
         mDistrictSv.setActivity(this);
         mDistrictSv.setAdapter(mDistrictAdapter);
         mDistrictSv.setDelegate(this);
@@ -125,12 +123,12 @@ public class MainActivity extends AppCompatActivity implements BGASelectView.Sel
         }
     }
 
-    private void setProvinceModel(ProvinceModel provinceModel) {
+    private void setProvinceModel(CascadeModel provinceModel) {
         mProvinceModel = provinceModel;
 
         if (mProvinceModel != null) {
             mProvinceSv.setText(mProvinceModel.name);
-            mCitys = mProvinceModel.cityList;
+            mCitys = mProvinceModel.childrens;
         } else {
             mProvinceSv.reset();
             mCitys = null;
@@ -138,12 +136,12 @@ public class MainActivity extends AppCompatActivity implements BGASelectView.Sel
         mCityAdapter.setDatas(mCitys);
     }
 
-    private void setCityModel(CityModel cityModel) {
+    private void setCityModel(CascadeModel cityModel) {
         mCityModel = cityModel;
 
         if (mCityModel != null) {
             mCitySv.setText(mCityModel.name);
-            mDistricts = mCityModel.districtList;
+            mDistricts = mCityModel.childrens;
         } else {
             mCitySv.reset();
             mDistricts = null;
@@ -151,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements BGASelectView.Sel
         mDistrictAdapter.setDatas(mDistricts);
     }
 
-    private void setDistrictModel(DistrictModel districtModel) {
+    private void setDistrictModel(CascadeModel districtModel) {
         mDistrictModel = districtModel;
         if (mDistrictModel != null) {
             mDistrictSv.setText(mDistrictModel.name);
@@ -167,9 +165,9 @@ public class MainActivity extends AppCompatActivity implements BGASelectView.Sel
         mAddressTv.setText(AddressXmlParserHandler.getCompleteAddress(mProvinces, mProvinceId, mCityId, mDistrictId));
     }
 
-    private static class ProvinceAdapter extends BGAAdapterViewAdapter<ProvinceModel> {
+    private static class AddressAdapter extends BGAAdapterViewAdapter<CascadeModel> {
 
-        public ProvinceAdapter(Context context) {
+        public AddressAdapter(Context context) {
             super(context, R.layout.item_selectview);
         }
 
@@ -178,40 +176,8 @@ public class MainActivity extends AppCompatActivity implements BGASelectView.Sel
         }
 
         @Override
-        protected void fillData(BGAViewHolderHelper viewHolderHelper, ProvinceModel provinceModel, int position) {
-            viewHolderHelper.setText(R.id.tv_item_address_edit_name, provinceModel.name);
-        }
-    }
-
-    private static class CityAdapter extends BGAAdapterViewAdapter<CityModel> {
-
-        public CityAdapter(Context context) {
-            super(context, R.layout.item_selectview);
-        }
-
-        @Override
-        protected void setItemChildListener(BGAViewHolderHelper viewHolderHelper) {
-        }
-
-        @Override
-        protected void fillData(BGAViewHolderHelper viewHolderHelper, CityModel cityModel, int position) {
-            viewHolderHelper.setText(R.id.tv_item_address_edit_name, cityModel.name);
-        }
-    }
-
-    private static class DistrictAdapter extends BGAAdapterViewAdapter<DistrictModel> {
-
-        public DistrictAdapter(Context context) {
-            super(context, R.layout.item_selectview);
-        }
-
-        @Override
-        protected void setItemChildListener(BGAViewHolderHelper viewHolderHelper) {
-        }
-
-        @Override
-        protected void fillData(BGAViewHolderHelper viewHolderHelper, DistrictModel districtModel, int position) {
-            viewHolderHelper.setText(R.id.tv_item_address_edit_name, districtModel.name);
+        protected void fillData(BGAViewHolderHelper viewHolderHelper, CascadeModel model, int position) {
+            viewHolderHelper.setText(R.id.tv_item_address_edit_name, model.name);
         }
     }
 

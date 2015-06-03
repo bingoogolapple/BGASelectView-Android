@@ -14,10 +14,7 @@ import java.util.List;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import cn.bingoogolapple.selectview.demo.model.CityModel;
-import cn.bingoogolapple.selectview.demo.model.DistrictModel;
-import cn.bingoogolapple.selectview.demo.model.ProvinceModel;
-
+import cn.bingoogolapple.selectview.demo.model.CascadeModel;
 
 /**
  * 作者:王浩 邮件:bingoogolapple@gmail.com
@@ -25,10 +22,10 @@ import cn.bingoogolapple.selectview.demo.model.ProvinceModel;
  * 描述:地址解析工具类
  */
 public class AddressXmlParserHandler extends DefaultHandler {
-    private List<ProvinceModel> provinceList = new ArrayList<>();
-    private ProvinceModel provinceModel;
-    private CityModel cityModel;
-    private DistrictModel districtModel;
+    private List<CascadeModel> provinceList = new ArrayList<>();
+    private CascadeModel provinceModel;
+    private CascadeModel cityModel;
+    private CascadeModel districtModel;
 
     @Override
     public void startDocument() throws SAXException {
@@ -39,17 +36,17 @@ public class AddressXmlParserHandler extends DefaultHandler {
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         // 当遇到开始标记的时候，调用这个方法
         if (qName.equals("province")) {
-            provinceModel = new ProvinceModel();
+            provinceModel = new CascadeModel();
             provinceModel.name = attributes.getValue(0);
             provinceModel.id = attributes.getValue(1);
-            provinceModel.cityList = new ArrayList<>();
+            provinceModel.childrens = new ArrayList<>();
         } else if (qName.equals("city")) {
-            cityModel = new CityModel();
+            cityModel = new CascadeModel();
             cityModel.name = attributes.getValue(0);
             cityModel.id = attributes.getValue(1);
-            cityModel.districtList = new ArrayList<>();
+            cityModel.childrens = new ArrayList<>();
         } else if (qName.equals("district")) {
-            districtModel = new DistrictModel();
+            districtModel = new CascadeModel();
             districtModel.name = attributes.getValue(0);
             districtModel.id = attributes.getValue(1);
         }
@@ -59,9 +56,9 @@ public class AddressXmlParserHandler extends DefaultHandler {
     public void endElement(String uri, String localName, String qName) throws SAXException {
         // 遇到结束标记的时候，会调用这个方法
         if (qName.equals("district")) {
-            cityModel.districtList.add(districtModel);
+            cityModel.childrens.add(districtModel);
         } else if (qName.equals("city")) {
-            provinceModel.cityList.add(cityModel);
+            provinceModel.childrens.add(cityModel);
         } else if (qName.equals("province")) {
             provinceList.add(provinceModel);
         }
@@ -71,7 +68,7 @@ public class AddressXmlParserHandler extends DefaultHandler {
     public void characters(char[] ch, int start, int length) throws SAXException {
     }
 
-    public static List<ProvinceModel> getProvinceList(Context context) {
+    public static List<CascadeModel> getProvinceList(Context context) {
         AddressXmlParserHandler parserHandler = new AddressXmlParserHandler();
         try {
             InputStream input = context.getAssets().open("address_data.xml");
@@ -88,9 +85,9 @@ public class AddressXmlParserHandler extends DefaultHandler {
         return parserHandler.provinceList;
     }
 
-    public static ProvinceModel getSelectedProvinceModel(List<ProvinceModel> provinceList, String provinceId) {
-        ProvinceModel result = null;
-        for (ProvinceModel provinceModel : provinceList) {
+    public static CascadeModel getSelectedProvinceModel(List<CascadeModel> provinceList, String provinceId) {
+        CascadeModel result = null;
+        for (CascadeModel provinceModel : provinceList) {
             if (provinceModel.id.equals(provinceId)) {
                 result = provinceModel;
             }
@@ -98,10 +95,10 @@ public class AddressXmlParserHandler extends DefaultHandler {
         return result;
     }
 
-    public static CityModel getSelectedCityModel(ProvinceModel provinceModel, String cityId) {
-        CityModel result = null;
+    public static CascadeModel getSelectedCityModel(CascadeModel provinceModel, String cityId) {
+        CascadeModel result = null;
         if (provinceModel != null) {
-            for (CityModel cityModel : provinceModel.cityList) {
+            for (CascadeModel cityModel : provinceModel.childrens) {
                 if (cityModel.id.equals(cityId)) {
                     result = cityModel;
                 }
@@ -110,10 +107,10 @@ public class AddressXmlParserHandler extends DefaultHandler {
         return result;
     }
 
-    public static DistrictModel getSelectedDistrictModel(CityModel cityModel, String districtId) {
-        DistrictModel result = null;
+    public static CascadeModel getSelectedDistrictModel(CascadeModel cityModel, String districtId) {
+        CascadeModel result = null;
         if (cityModel != null) {
-            for (DistrictModel districtModel : cityModel.districtList) {
+            for (CascadeModel districtModel : cityModel.childrens) {
                 if (districtModel.id.equals(districtId)) {
                     result = districtModel;
                 }
@@ -122,13 +119,13 @@ public class AddressXmlParserHandler extends DefaultHandler {
         return result;
     }
 
-    public static String getCompleteAddress(List<ProvinceModel> provinceList, String provinceId, String cityId, String districtId) {
-        ProvinceModel provinceMode = getSelectedProvinceModel(provinceList, provinceId);
+    public static String getCompleteAddress(List<CascadeModel> provinceList, String provinceId, String cityId, String districtId) {
+        CascadeModel provinceMode = getSelectedProvinceModel(provinceList, provinceId);
         String result = provinceMode.name;
         if (!TextUtils.isEmpty(cityId)) {
-            CityModel cityMode = getSelectedCityModel(provinceMode, cityId);
+            CascadeModel cityMode = getSelectedCityModel(provinceMode, cityId);
             if (cityMode != null) {
-                DistrictModel districtModel = getSelectedDistrictModel(cityMode, districtId);
+                CascadeModel districtModel = getSelectedDistrictModel(cityMode, districtId);
                 String districtName = districtModel == null ? "" : districtModel.name;
                 result = provinceMode.name + cityMode.name + districtName;
             }
