@@ -9,7 +9,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
@@ -99,9 +101,19 @@ public class BGASelectView extends TextView implements AdapterView.OnItemClickLi
 
     @Override
     public void onClick(View v) {
+        open();
+    }
+
+    public void open() {
         BGASelectView.closeKeyboard(mActivity);
         BGASelectView.closeKeyboard(mDialog);
         postDelayed(mShowPwTask, 200);
+    }
+
+    public void close() {
+        if (mValuePw != null) {
+            mValuePw.dismiss();
+        }
     }
 
     private Runnable mShowPwTask = new Runnable() {
@@ -114,6 +126,8 @@ public class BGASelectView extends TextView implements AdapterView.OnItemClickLi
             }
             if (mListView.getAdapter().getCount() > 0) {
                 mValuePw.showAsDropDown(BGASelectView.this);
+                ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) mValuePw.getContentView().getLayoutParams();
+                layoutParams.bottomMargin = BGASelectView.dp2px(getContext(), 10);
             }
         }
     };
@@ -152,5 +166,9 @@ public class BGASelectView extends TextView implements AdapterView.OnItemClickLi
             InputMethodManager inputMethodManager = (InputMethodManager) dialog.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
             inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
+    }
+
+    public static int dp2px(Context context, int dpValue) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpValue, context.getResources().getDisplayMetrics());
     }
 }
