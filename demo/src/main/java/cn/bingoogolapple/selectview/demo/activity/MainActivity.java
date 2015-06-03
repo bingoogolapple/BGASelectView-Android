@@ -28,9 +28,11 @@ public class MainActivity extends AppCompatActivity implements BGASelectView.Sel
     private AddressAdapter mProvinceAdapter;
     private AddressAdapter mCityAdapter;
     private AddressAdapter mDistrictAdapter;
+
     private List<CascadeModel> mProvinces;
     private List<CascadeModel> mCitys;
     private List<CascadeModel> mDistricts;
+
     private CascadeModel mProvinceModel;
     private CascadeModel mCityModel;
     private CascadeModel mDistrictModel;
@@ -73,10 +75,10 @@ public class MainActivity extends AppCompatActivity implements BGASelectView.Sel
         mProvinces = AddressEngine.getProvinceList(this);
         mProvinceAdapter.setDatas(mProvinces);
 
-        setProvinceModel(AddressEngine.getSelectedProvinceModel(mProvinces, mProvinceId));
-        setCityModel(AddressEngine.getSelectedCityModel(mProvinceModel, mCityId));
-        setDistrictModel(AddressEngine.getSelectedDistrictModel(mCityModel, mDistrictId));
-        handleAddressChanged();
+        setCurrentProvinceModel(AddressEngine.getSelectedProvinceModel(mProvinces, mProvinceId));
+        setCurrentCityModel(AddressEngine.getSelectedCityModel(mProvinceModel, mCityId));
+        setCurrentDistrictModel(AddressEngine.getSelectedDistrictModel(mCityModel, mDistrictId));
+        setCompleteAddress();
     }
 
     @Override
@@ -94,36 +96,36 @@ public class MainActivity extends AppCompatActivity implements BGASelectView.Sel
             default:
                 break;
         }
-        handleAddressChanged();
+        setCompleteAddress();
     }
 
     private void handleProvinceChanged(int position) {
         if (mProvinces != null && mProvinces.size() > 0) {
-            setProvinceModel(mProvinces.get(position));
+            setCurrentProvinceModel(mProvinces.get(position));
         } else {
-            setProvinceModel(null);
+            setCurrentProvinceModel(null);
         }
         handleCityChanged(0);
     }
 
     private void handleCityChanged(int position) {
         if (mCitys != null && mCitys.size() > 0) {
-            setCityModel(mCitys.get(position));
+            setCurrentCityModel(mCitys.get(position));
         } else {
-            setCityModel(null);
+            setCurrentCityModel(null);
         }
         handleDistrictChanged(0);
     }
 
     private void handleDistrictChanged(int position) {
         if (mDistricts != null && mDistricts.size() > 0) {
-            setDistrictModel(mDistricts.get(position));
+            setCurrentDistrictModel(mDistricts.get(position));
         } else {
-            setDistrictModel(null);
+            setCurrentDistrictModel(null);
         }
     }
 
-    private void setProvinceModel(CascadeModel provinceModel) {
+    private void setCurrentProvinceModel(CascadeModel provinceModel) {
         mProvinceModel = provinceModel;
 
         if (mProvinceModel != null) {
@@ -136,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements BGASelectView.Sel
         mCityAdapter.setDatas(mCitys);
     }
 
-    private void setCityModel(CascadeModel cityModel) {
+    private void setCurrentCityModel(CascadeModel cityModel) {
         mCityModel = cityModel;
 
         if (mCityModel != null) {
@@ -149,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements BGASelectView.Sel
         mDistrictAdapter.setDatas(mDistricts);
     }
 
-    private void setDistrictModel(CascadeModel districtModel) {
+    private void setCurrentDistrictModel(CascadeModel districtModel) {
         mDistrictModel = districtModel;
         if (mDistrictModel != null) {
             mDistrictSv.setText(mDistrictModel.name);
@@ -158,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements BGASelectView.Sel
         }
     }
 
-    private void handleAddressChanged() {
+    private void setCompleteAddress() {
         mProvinceId = mProvinceModel == null ? null : mProvinceModel.id;
         mCityId = mCityModel == null ? null : mCityModel.id;
         mDistrictId = mDistrictModel == null ? null : mDistrictModel.id;

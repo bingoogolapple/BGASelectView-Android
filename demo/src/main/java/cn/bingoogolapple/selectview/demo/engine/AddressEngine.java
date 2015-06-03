@@ -80,11 +80,13 @@ public class AddressEngine extends DefaultHandler {
         return parserHandler.provinceList;
     }
 
-    public static CascadeModel getSelectedProvinceModel(List<CascadeModel> provinceList, String provinceId) {
+    public static CascadeModel getSelectedProvinceModel(List<CascadeModel> provinces, String provinceId) {
         CascadeModel result = null;
-        for (CascadeModel provinceModel : provinceList) {
-            if (provinceModel.id.equals(provinceId)) {
-                result = provinceModel;
+        if (provinces != null) {
+            for (CascadeModel provinceModel : provinces) {
+                if (provinceModel.id.equals(provinceId)) {
+                    result = provinceModel;
+                }
             }
         }
         return result;
@@ -92,7 +94,7 @@ public class AddressEngine extends DefaultHandler {
 
     public static CascadeModel getSelectedCityModel(CascadeModel provinceModel, String cityId) {
         CascadeModel result = null;
-        if (provinceModel != null) {
+        if (provinceModel != null && provinceModel.childrens != null) {
             for (CascadeModel cityModel : provinceModel.childrens) {
                 if (cityModel.id.equals(cityId)) {
                     result = cityModel;
@@ -104,7 +106,7 @@ public class AddressEngine extends DefaultHandler {
 
     public static CascadeModel getSelectedDistrictModel(CascadeModel cityModel, String districtId) {
         CascadeModel result = null;
-        if (cityModel != null) {
+        if (cityModel != null && cityModel.childrens != null) {
             for (CascadeModel districtModel : cityModel.childrens) {
                 if (districtModel.id.equals(districtId)) {
                     result = districtModel;
@@ -114,15 +116,19 @@ public class AddressEngine extends DefaultHandler {
         return result;
     }
 
-    public static String getCompleteAddress(List<CascadeModel> provinceList, String provinceId, String cityId, String districtId) {
-        CascadeModel provinceMode = getSelectedProvinceModel(provinceList, provinceId);
-        String result = provinceMode.name;
-        if (!TextUtils.isEmpty(cityId)) {
-            CascadeModel cityMode = getSelectedCityModel(provinceMode, cityId);
-            if (cityMode != null) {
-                CascadeModel districtModel = getSelectedDistrictModel(cityMode, districtId);
-                String districtName = districtModel == null ? "" : districtModel.name;
-                result = provinceMode.name + cityMode.name + districtName;
+    public static String getCompleteAddress(List<CascadeModel> provinces, String provinceId, String cityId, String districtId) {
+        CascadeModel provinceMode = getSelectedProvinceModel(provinces, provinceId);
+        String result = "";
+        if (provinceMode != null) {
+            result = provinceMode.name;
+
+            if (!TextUtils.isEmpty(cityId)) {
+                CascadeModel cityMode = getSelectedCityModel(provinceMode, cityId);
+                if (cityMode != null) {
+                    CascadeModel districtModel = getSelectedDistrictModel(cityMode, districtId);
+                    String districtName = districtModel == null ? "" : districtModel.name;
+                    result = provinceMode.name + cityMode.name + districtName;
+                }
             }
         }
         return result;

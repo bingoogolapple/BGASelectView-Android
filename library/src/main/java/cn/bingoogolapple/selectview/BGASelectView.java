@@ -103,12 +103,12 @@ public class BGASelectView extends TextView implements AdapterView.OnItemClickLi
         @Override
         public void run() {
             if (mValuePw == null) {
-                mValuePw = new PopupWindow(mListView, getWidth(), getHeight() * 4);
+                mValuePw = new PopupWindow(mListView, getWidth(), -2);
                 mValuePw.setFocusable(true);
                 mValuePw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             }
             if (mListView.getAdapter().getCount() > 0) {
-                mValuePw.showAsDropDown(BGASelectView.this, 0, 0);
+                mValuePw.showAsDropDown(BGASelectView.this);
             }
         }
     };
