@@ -1,0 +1,509 @@
+<root>
+    <province name="广东省" id="0001">
+        <city name="广州市" id="0100">
+            <district name="市辖区" id="0101" />
+            <district name="荔湾区" id="0103" />
+            <district name="越秀区" id="0104" />
+            <district name="海珠区" id="0105" />
+            <district name="天河区" id="0106" />
+            <district name="白云区" id="0111" />
+            <district name="黄埔区" id="0112" />
+            <district name="番禺区" id="0113" />
+            <district name="花都区" id="0114" />
+            <district name="南沙区" id="0115" />
+            <district name="萝岗区" id="0116" />
+            <district name="从化区" id="0117" />
+            <district name="增城区" id="0118" />
+        </city>
+        <city name="韶关市" id="0200">
+            <district name="市辖区" id="0201" />
+            <district name="武江区" id="0203" />
+            <district name="浈江区" id="0204" />
+            <district name="曲江区" id="0205" />
+            <district name="始兴县" id="0222" />
+            <district name="仁化县" id="0224" />
+            <district name="翁源县" id="0229" />
+            <district name="乳源瑶族自治县" id="0232" />
+            <district name="新丰县" id="0233" />
+            <district name="乐昌市" id="0281" />
+            <district name="南雄市" id="0282" />
+        </city>
+        <city name="深圳市" id="0300">
+            <district name="市辖区" id="0301" />
+            <district name="罗湖区" id="0303" />
+            <district name="福田区" id="0304" />
+            <district name="南山区" id="0305" />
+            <district name="宝安区" id="0306" />
+            <district name="龙岗区" id="0307" />
+            <district name="盐田区" id="0308" />
+        </city>
+        <city name="珠海市" id="0400">
+            <district name="市辖区" id="0401" />
+            <district name="香洲区" id="0402" />
+            <district name="斗门区" id="0403" />
+            <district name="金湾区" id="0404" />
+        </city>
+        <city name="汕头市" id="0500">
+            <district name="市辖区" id="0501" />
+            <district name="龙湖区" id="0507" />
+            <district name="金平区" id="0511" />
+            <district name="濠江区" id="0512" />
+            <district name="潮阳区" id="0513" />
+            <district name="潮南区" id="0514" />
+            <district name="澄海区" id="0515" />
+            <district name="南澳县" id="0523" />
+        </city>
+        <city name="佛山市" id="0600">
+            <district name="市辖区" id="0601" />
+            <district name="禅城区" id="0604" />
+            <district name="南海区" id="0605" />
+            <district name="顺德区" id="0606" />
+            <district name="三水区" id="0607" />
+            <district name="高明区" id="0608" />
+        </city>
+        <city name="江门市" id="0700">
+            <district name="市辖区" id="0701" />
+            <district name="蓬江区" id="0703" />
+            <district name="江海区" id="0704" />
+            <district name="新会区" id="0705" />
+            <district name="台山市" id="0781" />
+            <district name="开平市" id="0783" />
+            <district name="鹤山市" id="0784" />
+            <district name="恩平市" id="0785" />
+        </city>
+        <city name="湛江市" id="0800">
+            <district name="市辖区" id="0801" />
+            <district name="赤坎区" id="0802" />
+            <district name="霞山区" id="0803" />
+            <district name="坡头区" id="0804" />
+            <district name="麻章区" id="0811" />
+            <district name="遂溪县" id="0823" />
+            <district name="徐闻县" id="0825" />
+            <district name="廉江市" id="0881" />
+            <district name="雷州市" id="0882" />
+            <district name="吴川市" id="0883" />
+        </city>
+        <city name="茂名市" id="0900">
+            <district name="市辖区" id="0901" />
+            <district name="茂南区" id="0902" />
+            <district name="电白区" id="0904" />
+            <district name="高州市" id="0981" />
+            <district name="化州市" id="0982" />
+            <district name="信宜市" id="0983" />
+        </city>
+        <city name="肇庆市" id="1200">
+            <district name="市辖区" id="1201" />
+            <district name="端州区" id="1202" />
+            <district name="鼎湖区" id="1203" />
+            <district name="广宁县" id="1223" />
+            <district name="怀集县" id="1224" />
+            <district name="封开县" id="1225" />
+            <district name="德庆县" id="1226" />
+            <district name="高要市" id="1283" />
+            <district name="四会市" id="1284" />
+        </city>
+        <city name="惠州市" id="1300">
+            <district name="市辖区" id="1301" />
+            <district name="惠城区" id="1302" />
+            <district name="惠阳区" id="1303" />
+            <district name="博罗县" id="1322" />
+            <district name="惠东县" id="1323" />
+            <district name="龙门县" id="1324" />
+        </city>
+        <city name="梅州市" id="1400">
+            <district name="市辖区" id="1401" />
+            <district name="梅江区" id="1402" />
+            <district name="梅县区" id="1403" />
+            <district name="大埔县" id="1422" />
+            <district name="丰顺县" id="1423" />
+            <district name="五华县" id="1424" />
+            <district name="平远县" id="1426" />
+            <district name="蕉岭县" id="1427" />
+            <district name="兴宁市" id="1481" />
+        </city>
+        <city name="汕尾市" id="1500">
+            <district name="市辖区" id="1501" />
+            <district name="城区" id="1502" />
+            <district name="海丰县" id="1521" />
+            <district name="陆河县" id="1523" />
+            <district name="陆丰市" id="1581" />
+        </city>
+        <city name="河源市" id="1600">
+            <district name="市辖区" id="1601" />
+            <district name="源城区" id="1602" />
+            <district name="紫金县" id="1621" />
+            <district name="龙川县" id="1622" />
+            <district name="连平县" id="1623" />
+            <district name="和平县" id="1624" />
+            <district name="东源县" id="1625" />
+        </city>
+        <city name="阳江市" id="1700">
+            <district name="市辖区" id="1701" />
+            <district name="江城区" id="1702" />
+            <district name="阳西县" id="1721" />
+            <district name="阳东县" id="1723" />
+            <district name="阳春市" id="1781" />
+        </city>
+        <city name="清远市" id="1800">
+            <district name="市辖区" id="1801" />
+            <district name="清城区" id="1802" />
+            <district name="清新区" id="1803" />
+            <district name="佛冈县" id="1821" />
+            <district name="阳山县" id="1823" />
+            <district name="连山壮族瑶族自治县" id="1825" />
+            <district name="连南瑶族自治县" id="1826" />
+            <district name="英德市" id="1881" />
+            <district name="连州市" id="1882" />
+        </city>
+        <city name="东莞市" id="1900"></city>
+        <city name="中山市" id="2000">
+
+        </city>
+        <city name="潮州市" id="5100">
+            <district name="市辖区" id="5101" />
+            <district name="湘桥区" id="5102" />
+            <district name="潮安区" id="5103" />
+            <district name="饶平县" id="5122" />
+        </city>
+        <city name="揭阳市" id="5200">
+            <district name="市辖区" id="5201" />
+            <district name="榕城区" id="5202" />
+            <district name="揭东区" id="5203" />
+            <district name="揭西县" id="5222" />
+            <district name="惠来县" id="5224" />
+            <district name="普宁市" id="5281" />
+        </city>
+        <city name="云浮市" id="5300">
+            <district name="市辖区" id="5301" />
+            <district name="云城区" id="5302" />
+            <district name="云安区" id="5303" />
+            <district name="新兴县" id="5321" />
+            <district name="郁南县" id="5322" />
+            <district name="罗定市" id="5381" />
+        </city>
+    </province>
+    <province name="海南省" id="0002">
+        <city name="海口市" id="0100">
+            <district name="市辖区" id="0101" />
+            <district name="秀英区" id="0105" />
+            <district name="龙华区" id="0106" />
+            <district name="琼山区" id="0107" />
+            <district name="美兰区" id="0108" />
+        </city>
+        <city name="三亚市" id="0200">
+            <district name="市辖区" id="0201" />
+            <district name="海棠区" id="0202" />
+            <district name="吉阳区" id="0203" />
+            <district name="天涯区" id="0204" />
+            <district name="崖州区" id="0205" />
+        </city>
+        <city name="三沙市" id="0300"></city>
+        <city name="省直辖县级行政区划" id="9000">
+            <district name="五指山市" id="9001" />
+            <district name="琼海市" id="9002" />
+            <district name="儋州市" id="9003" />
+            <district name="文昌市" id="9005" />
+            <district name="万宁市" id="9006" />
+            <district name="东方市" id="9007" />
+            <district name="定安县" id="9021" />
+            <district name="屯昌县" id="9022" />
+            <district name="澄迈县" id="9023" />
+            <district name="临高县" id="9024" />
+            <district name="白沙黎族自治县" id="9025" />
+            <district name="昌江黎族自治县" id="9026" />
+            <district name="乐东黎族自治县" id="9027" />
+            <district name="陵水黎族自治县" id="9028" />
+            <district name="保亭黎族苗族自治县" id="9029" />
+            <district name="琼中黎族苗族自治县" id="9030" />
+        </city>
+    </province>
+    <province name="重庆市" id="0003">
+        <city name="市辖区" id="0100">
+            <district name="万州区" id="0101" />
+            <district name="涪陵区" id="0102" />
+            <district name="渝中区" id="0103" />
+            <district name="大渡口区" id="0104" />
+            <district name="江北区" id="0105" />
+            <district name="沙坪坝区" id="0106" />
+            <district name="九龙坡区" id="0107" />
+            <district name="南岸区" id="0108" />
+            <district name="北碚区" id="0109" />
+            <district name="綦江区" id="0110" />
+            <district name="大足区" id="0111" />
+            <district name="渝北区" id="0112" />
+            <district name="巴南区" id="0113" />
+            <district name="黔江区" id="0114" />
+            <district name="长寿区" id="0115" />
+            <district name="江津区" id="0116" />
+            <district name="合川区" id="0117" />
+            <district name="永川区" id="0118" />
+            <district name="南川区" id="0119" />
+            <district name="璧山区" id="0120" />
+            <district name="铜梁区" id="0151" />
+        </city>
+        <city name="县" id="0200">
+            <district name="潼南县" id="0223" />
+            <district name="荣昌县" id="0226" />
+            <district name="梁平县" id="0228" />
+            <district name="城口县" id="0229" />
+            <district name="丰都县" id="0230" />
+            <district name="垫江县" id="0231" />
+            <district name="武隆县" id="0232" />
+            <district name="忠县" id="0233" />
+            <district name="开县" id="0234" />
+            <district name="云阳县" id="0235" />
+            <district name="奉节县" id="0236" />
+            <district name="巫山县" id="0237" />
+            <district name="巫溪县" id="0238" />
+            <district name="石柱土家族自治县" id="0240" />
+            <district name="秀山土家族苗族自治县" id="0241" />
+            <district name="酉阳土家族苗族自治县" id="0242" />
+            <district name="彭水苗族土家族自治县" id="0243" />
+        </city>
+    </province>
+    <province name="四川省" id="0004">
+        <city name="成都市" id="0100">
+            <district name="市辖区" id="0101" />
+            <district name="锦江区" id="0104" />
+            <district name="青羊区" id="0105" />
+            <district name="金牛区" id="0106" />
+            <district name="武侯区" id="0107" />
+            <district name="成华区" id="0108" />
+            <district name="龙泉驿区" id="0112" />
+            <district name="青白江区" id="0113" />
+            <district name="新都区" id="0114" />
+            <district name="温江区" id="0115" />
+            <district name="金堂县" id="0121" />
+            <district name="双流县" id="0122" />
+            <district name="郫县" id="0124" />
+            <district name="大邑县" id="0129" />
+            <district name="蒲江县" id="0131" />
+            <district name="新津县" id="0132" />
+            <district name="都江堰市" id="0181" />
+            <district name="彭州市" id="0182" />
+            <district name="邛崃市" id="0183" />
+            <district name="崇州市" id="0184" />
+        </city>
+        <city name="自贡市" id="0300">
+            <district name="市辖区" id="0301" />
+            <district name="自流井区" id="0302" />
+            <district name="贡井区" id="0303" />
+            <district name="大安区" id="0304" />
+            <district name="沿滩区" id="0311" />
+            <district name="荣县" id="0321" />
+            <district name="富顺县" id="0322" />
+        </city>
+        <city name="攀枝花市" id="0400">
+            <district name="市辖区" id="0401" />
+            <district name="东区" id="0402" />
+            <district name="西区" id="0403" />
+            <district name="仁和区" id="0411" />
+            <district name="米易县" id="0421" />
+            <district name="盐边县" id="0422" />
+        </city>
+        <city name="泸州市" id="0500">
+            <district name="市辖区" id="0501" />
+            <district name="江阳区" id="0502" />
+            <district name="纳溪区" id="0503" />
+            <district name="龙马潭区" id="0504" />
+            <district name="泸县" id="0521" />
+            <district name="合江县" id="0522" />
+            <district name="叙永县" id="0524" />
+            <district name="古蔺县" id="0525" />
+        </city>
+        <city name="德阳市" id="0600">
+            <district name="市辖区" id="0601" />
+            <district name="旌阳区" id="0603" />
+            <district name="中江县" id="0623" />
+            <district name="罗江县" id="0626" />
+            <district name="广汉市" id="0681" />
+            <district name="什邡市" id="0682" />
+            <district name="绵竹市" id="0683" />
+        </city>
+        <city name="绵阳市" id="0700">
+            <district name="市辖区" id="0701" />
+            <district name="涪城区" id="0703" />
+            <district name="游仙区" id="0704" />
+            <district name="三台县" id="0722" />
+            <district name="盐亭县" id="0723" />
+            <district name="安县" id="0724" />
+            <district name="梓潼县" id="0725" />
+            <district name="北川羌族自治县" id="0726" />
+            <district name="平武县" id="0727" />
+            <district name="江油市" id="0781" />
+        </city>
+        <city name="广元市" id="0800">
+            <district name="市辖区" id="0801" />
+            <district name="利州区" id="0802" />
+            <district name="昭化区" id="0811" />
+            <district name="朝天区" id="0812" />
+            <district name="旺苍县" id="0821" />
+            <district name="青川县" id="0822" />
+            <district name="剑阁县" id="0823" />
+            <district name="苍溪县" id="0824" />
+        </city>
+        <city name="遂宁市" id="0900">
+            <district name="市辖区" id="0901" />
+            <district name="船山区" id="0903" />
+            <district name="安居区" id="0904" />
+            <district name="蓬溪县" id="0921" />
+            <district name="射洪县" id="0922" />
+            <district name="大英县" id="0923" />
+        </city>
+        <city name="内江市" id="1000">
+            <district name="市辖区" id="1001" />
+            <district name="市中区" id="1002" />
+            <district name="东兴区" id="1011" />
+            <district name="威远县" id="1024" />
+            <district name="资中县" id="1025" />
+            <district name="隆昌县" id="1028" />
+        </city>
+        <city name="乐山市" id="1100">
+            <district name="市辖区" id="1101" />
+            <district name="市中区" id="1102" />
+            <district name="沙湾区" id="1111" />
+            <district name="五通桥区" id="1112" />
+            <district name="金口河区" id="1113" />
+            <district name="犍为县" id="1123" />
+            <district name="井研县" id="1124" />
+            <district name="夹江县" id="1126" />
+            <district name="沐川县" id="1129" />
+            <district name="峨边彝族自治县" id="1132" />
+            <district name="马边彝族自治县" id="1133" />
+            <district name="峨眉山市" id="1181" />
+        </city>
+        <city name="南充市" id="1300">
+            <district name="市辖区" id="1301" />
+            <district name="顺庆区" id="1302" />
+            <district name="高坪区" id="1303" />
+            <district name="嘉陵区" id="1304" />
+            <district name="南部县" id="1321" />
+            <district name="营山县" id="1322" />
+            <district name="蓬安县" id="1323" />
+            <district name="仪陇县" id="1324" />
+            <district name="西充县" id="1325" />
+            <district name="阆中市" id="1381" />
+        </city>
+        <city name="眉山市" id="1400">
+            <district name="市辖区" id="1401" />
+            <district name="东坡区" id="1402" />
+            <district name="仁寿县" id="1421" />
+            <district name="彭山县" id="1422" />
+            <district name="洪雅县" id="1423" />
+            <district name="丹棱县" id="1424" />
+            <district name="青神县" id="1425" />
+        </city>
+        <city name="宜宾市" id="1500">
+            <district name="市辖区" id="1501" />
+            <district name="翠屏区" id="1502" />
+            <district name="南溪区" id="1503" />
+            <district name="宜宾县" id="1521" />
+            <district name="江安县" id="1523" />
+            <district name="长宁县" id="1524" />
+            <district name="高县" id="1525" />
+            <district name="珙县" id="1526" />
+            <district name="筠连县" id="1527" />
+            <district name="兴文县" id="1528" />
+            <district name="屏山县" id="1529" />
+        </city>
+        <city name="广安市" id="1600">
+            <district name="市辖区" id="1601" />
+            <district name="广安区" id="1602" />
+            <district name="前锋区" id="1603" />
+            <district name="岳池县" id="1621" />
+            <district name="武胜县" id="1622" />
+            <district name="邻水县" id="1623" />
+            <district name="华蓥市" id="1681" />
+        </city>
+        <city name="达州市" id="1700">
+            <district name="市辖区" id="1701" />
+            <district name="通川区" id="1702" />
+            <district name="达川区" id="1703" />
+            <district name="宣汉县" id="1722" />
+            <district name="开江县" id="1723" />
+            <district name="大竹县" id="1724" />
+            <district name="渠县" id="1725" />
+            <district name="万源市" id="1781" />
+        </city>
+        <city name="雅安市" id="1800">
+            <district name="市辖区" id="1801" />
+            <district name="雨城区" id="1802" />
+            <district name="名山区" id="1803" />
+            <district name="荥经县" id="1822" />
+            <district name="汉源县" id="1823" />
+            <district name="石棉县" id="1824" />
+            <district name="天全县" id="1825" />
+            <district name="芦山县" id="1826" />
+            <district name="宝兴县" id="1827" />
+        </city>
+        <city name="巴中市" id="1900">
+            <district name="市辖区" id="1901" />
+            <district name="巴州区" id="1902" />
+            <district name="恩阳区" id="1903" />
+            <district name="通江县" id="1921" />
+            <district name="南江县" id="1922" />
+            <district name="平昌县" id="1923" />
+        </city>
+        <city name="资阳市" id="2000">
+            <district name="市辖区" id="2001" />
+            <district name="雁江区" id="2002" />
+            <district name="安岳县" id="2021" />
+            <district name="乐至县" id="2022" />
+            <district name="简阳市" id="2081" />
+        </city>
+        <city name="阿坝藏族羌族自治州" id="3200">
+            <district name="汶川县" id="3221" />
+            <district name="理县" id="3222" />
+            <district name="茂县" id="3223" />
+            <district name="松潘县" id="3224" />
+            <district name="九寨沟县" id="3225" />
+            <district name="金川县" id="3226" />
+            <district name="小金县" id="3227" />
+            <district name="黑水县" id="3228" />
+            <district name="马尔康县" id="3229" />
+            <district name="壤塘县" id="3230" />
+            <district name="阿坝县" id="3231" />
+            <district name="若尔盖县" id="3232" />
+            <district name="红原县" id="3233" />
+        </city>
+        <city name="甘孜藏族自治州" id="3300">
+            <district name="康定县" id="3321" />
+            <district name="泸定县" id="3322" />
+            <district name="丹巴县" id="3323" />
+            <district name="九龙县" id="3324" />
+            <district name="雅江县" id="3325" />
+            <district name="道孚县" id="3326" />
+            <district name="炉霍县" id="3327" />
+            <district name="甘孜县" id="3328" />
+            <district name="新龙县" id="3329" />
+            <district name="德格县" id="3330" />
+            <district name="白玉县" id="3331" />
+            <district name="石渠县" id="3332" />
+            <district name="色达县" id="3333" />
+            <district name="理塘县" id="3334" />
+            <district name="巴塘县" id="3335" />
+            <district name="乡城县" id="3336" />
+            <district name="稻城县" id="3337" />
+            <district name="得荣县" id="3338" />
+        </city>
+        <city name="凉山彝族自治州" id="3400">
+            <district name="西昌市" id="3401" />
+            <district name="木里藏族自治县" id="3422" />
+            <district name="盐源县" id="3423" />
+            <district name="德昌县" id="3424" />
+            <district name="会理县" id="3425" />
+            <district name="会东县" id="3426" />
+            <district name="宁南县" id="3427" />
+            <district name="普格县" id="3428" />
+            <district name="布拖县" id="3429" />
+            <district name="金阳县" id="3430" />
+            <district name="昭觉县" id="3431" />
+            <district name="喜德县" id="3432" />
+            <district name="冕宁县" id="3433" />
+            <district name="越西县" id="3434" />
+            <district name="甘洛县" id="3435" />
+            <district name="美姑县" id="3436" />
+            <district name="雷波县" id="3437" />
+        </city>
+    </province>
+</root>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f8f8"
+    android:orientation="vertical">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试键盘焦点" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试键盘焦点" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="测试键盘焦点" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <cn.bingoogolapple.selectview.BGASelectView
+            android:id="@+id/sv_main_province"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_selectview"
+            android:drawableRight="@mipmap/selectview_arrow"
+            android:hint="请选择省份"
+            android:padding="10dp"
+            android:textColor="#555555"
+            android:textColorHint="#cecece" />
+
+        <cn.bingoogolapple.selectview.BGASelectView
+            android:id="@+id/sv_main_city"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_selectview"
+            android:drawableRight="@mipmap/selectview_arrow"
+            android:hint="请选择城市"
+            android:padding="10dp"
+            android:textColor="#555555"
+            android:textColorHint="#cecece" />
+
+        <cn.bingoogolapple.selectview.BGASelectView
+            android:id="@+id/sv_main_district"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_selectview"
+            android:drawableRight="@mipmap/selectview_arrow"
+            app:sv_listViewLayoutId="@layout/view_address"
+            android:hint="请选择区"
+            android:padding="10dp"
+            android:textColor="#555555"
+            android:textColorHint="#cecece" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_main_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="测试键盘焦点" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试键盘焦点" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试键盘焦点" />
+</LinearLayout>
