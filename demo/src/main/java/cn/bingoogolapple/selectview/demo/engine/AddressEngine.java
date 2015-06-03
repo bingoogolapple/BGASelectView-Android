@@ -1,4 +1,4 @@
-package cn.bingoogolapple.selectview.demo.util;
+package cn.bingoogolapple.selectview.demo.engine;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -7,6 +7,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,22 +20,16 @@ import cn.bingoogolapple.selectview.CascadeModel;
 /**
  * 作者:王浩 邮件:bingoogolapple@gmail.com
  * 创建时间:15/5/11 15:56
- * 描述:地址解析工具类
+ * 描述:地址解析引擎
  */
-public class AddressXmlParserHandler extends DefaultHandler {
+public class AddressEngine extends DefaultHandler {
     private List<CascadeModel> provinceList = new ArrayList<>();
     private CascadeModel provinceModel;
     private CascadeModel cityModel;
     private CascadeModel districtModel;
 
     @Override
-    public void startDocument() throws SAXException {
-        // 当读到第一个开始标签的时候，会触发这个方法
-    }
-
-    @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-        // 当遇到开始标记的时候，调用这个方法
         if (qName.equals("province")) {
             provinceModel = new CascadeModel();
             provinceModel.name = attributes.getValue(0);
@@ -64,23 +59,23 @@ public class AddressXmlParserHandler extends DefaultHandler {
         }
     }
 
-    @Override
-    public void characters(char[] ch, int start, int length) throws SAXException {
-    }
-
     public static List<CascadeModel> getProvinceList(Context context) {
-        AddressXmlParserHandler parserHandler = new AddressXmlParserHandler();
+        AddressEngine parserHandler = new AddressEngine();
+        InputStream is = null;
         try {
-            InputStream input = context.getAssets().open("address_data.xml");
-            // 创建一个解析xml的工厂对象
-            SAXParserFactory spf = SAXParserFactory.newInstance();
-            // 解析xml
-            SAXParser parser = spf.newSAXParser();
-
-            parser.parse(input, parserHandler);
-            input.close();
+            SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
+            is = context.getAssets().open("address_data.xml");
+            parser.parse(is, parserHandler);
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if (is != null) {
+                try {
+                    is.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return parserHandler.provinceList;
     }

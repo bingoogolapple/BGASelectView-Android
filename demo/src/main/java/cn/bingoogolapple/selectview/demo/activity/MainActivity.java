@@ -12,7 +12,7 @@ import cn.bingoogolapple.androidcommon.adapter.BGAViewHolderHelper;
 import cn.bingoogolapple.selectview.BGASelectView;
 import cn.bingoogolapple.selectview.CascadeModel;
 import cn.bingoogolapple.selectview.demo.R;
-import cn.bingoogolapple.selectview.demo.util.AddressXmlParserHandler;
+import cn.bingoogolapple.selectview.demo.engine.AddressEngine;
 
 /**
  * 作者:王浩 邮件:bingoogolapple@gmail.com
@@ -70,12 +70,12 @@ public class MainActivity extends AppCompatActivity implements BGASelectView.Sel
     }
 
     private void initData() {
-        mProvinces = AddressXmlParserHandler.getProvinceList(this);
+        mProvinces = AddressEngine.getProvinceList(this);
         mProvinceAdapter.setDatas(mProvinces);
 
-        setProvinceModel(AddressXmlParserHandler.getSelectedProvinceModel(mProvinces, mProvinceId));
-        setCityModel(AddressXmlParserHandler.getSelectedCityModel(mProvinceModel, mCityId));
-        setDistrictModel(AddressXmlParserHandler.getSelectedDistrictModel(mCityModel, mDistrictId));
+        setProvinceModel(AddressEngine.getSelectedProvinceModel(mProvinces, mProvinceId));
+        setCityModel(AddressEngine.getSelectedCityModel(mProvinceModel, mCityId));
+        setDistrictModel(AddressEngine.getSelectedDistrictModel(mCityModel, mDistrictId));
         handleAddressChanged();
     }
 
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements BGASelectView.Sel
         mProvinceId = mProvinceModel == null ? null : mProvinceModel.id;
         mCityId = mCityModel == null ? null : mCityModel.id;
         mDistrictId = mDistrictModel == null ? null : mDistrictModel.id;
-        mAddressTv.setText(AddressXmlParserHandler.getCompleteAddress(mProvinces, mProvinceId, mCityId, mDistrictId));
+        mAddressTv.setText(AddressEngine.getCompleteAddress(mProvinces, mProvinceId, mCityId, mDistrictId));
     }
 
     private static class AddressAdapter extends BGAAdapterViewAdapter<CascadeModel> {
