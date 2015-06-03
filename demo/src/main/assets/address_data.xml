@@ -506,4 +506,9 @@
             <district name="雷波县" id="3437" />
         </city>
     </province>
+    <province name="测试没有区域" id="0005">
+        <city name="没有区域城市1" id="0200"/>
+        <city name="没有区域城市2" id="0200"/>
+    </province>
+    <province name="测试没有城市1" id="0006"/>
 </root>
