@@ -4,7 +4,7 @@
 
 
 #### 效果图
-![Demo](https://raw.githubusercontent.com/bingoogolapple/BGASelectView/master/screenshots/bgaselectview.gif)
+![Demo](https://raw.githubusercontent.com/bingoogolapple/BGASelectView-Android/master/screenshots/bgaselectview.gif)
 
 >Gradle
 
@@ -14,4 +14,4 @@ dependencies {
 }
 ```
 
-##### 详细用法请查看[Demo](https://github.com/bingoogolapple/BGASelectView/tree/master/demo):feet:
+##### 详细用法请查看[Demo](https://github.com/bingoogolapple/BGASelectView-Android/tree/master/demo):feet:
